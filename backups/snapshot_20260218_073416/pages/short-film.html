@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMBRAS | Short Film</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .bts-hero {
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bts-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .bts-title {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            font-size: 4rem;
+            text-transform: uppercase;
+        }
+
+        .gallery-section {
+            padding: 4rem 2rem;
+        }
+
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .masonry-item:hover img {
+            filter: grayscale(0%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="transition-curtain" style="opacity: 1;"></div>
+
+    <nav class="fixed-nav">
+        <a href="../index.html" class="brand">← BACK</a>
+    </nav>
+
+    <header class="bts-hero">
+        <img src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/bts_camera_forest_1771387172191.png"
+            alt="BTS Forest">
+        <h1 class="bts-title">Behind The Scenes</h1>
+    </header>
+
+    <section class="gallery-section">
+        <div class="container masonry-grid">
+            <div class="masonry-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/bts_director_monitor_1771387156098.png"
+                    alt="Director Monitor"></div>
+            <div class="masonry-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/short_film_poster_1771384149145.png"
+                    alt="Poster"></div>
+            <div class="masonry-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/moody_film_still_2_1771384499353.png"
+                    alt="Still"></div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="../main.js"></script>
+</body>
+
+</html>
