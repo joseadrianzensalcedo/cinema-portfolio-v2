@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERIAL | Drone Works</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .video-card {
+            position: relative;
+        }
+
+        .video-card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .meta {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            color: var(--color-accent);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="transition-curtain" style="opacity: 1;"></div>
+
+    <nav class="fixed-nav">
+        <a href="../index.html" class="brand">← BACK</a>
+    </nav>
+
+    <div class="container" style="padding-top: 15vh;">
+        <div class="act-header">
+            <div class="act-line"></div>
+            <span class="act-title">AERIAL CINEMATOGRAPHY</span>
+            <div class="act-line"></div>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <img src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/drone_shot_iceland_1771384161257.png"
+                    alt="Iceland">
+                <div class="play-overlay">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="meta"><span>ICELAND</span><span>DJI MAVIC 3 CINE</span></div>
+            </div>
+            <div class="video-card">
+                <img src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/drone_iceland_beach_1771387190007.png"
+                    alt="Black Beach">
+                <div class="play-overlay">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="meta"><span>VIC, ICELAND</span><span>MAVIC LITE</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="../main.js"></script>
+</body>
+
+</html>
