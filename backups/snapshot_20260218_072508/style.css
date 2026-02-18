@@ -1,0 +1,385 @@
+/* --- 1. DESIGN TOKENS --- */
+:root {
+    /* TYPOGRAPHY */
+    --font-primary: 'Outfit', sans-serif;
+
+    /* Fluid Type: Min / Ideal / Max */
+    --text-hero: clamp(4rem, 15vw, 20rem);
+    --text-body: clamp(1rem, 1.25vw, 1.25rem);
+
+    /* COLORS */
+    --color-bg: #050505;
+    --color-text: #EAEAEA;
+    --color-accent: #888;
+
+    /* SPACING */
+    --container-width: 92vw;
+    --space-md: clamp(2rem, 5vw, 5rem);
+}
+
+/* --- TRANSITION CURTAIN --- */
+.transition-curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-bg);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* --- GLOBAL B&W TO COLOR --- */
+img {
+    transition: filter 0.5s ease, transform 0.7s ease;
+}
+
+.project-card img,
+.video-hover-container img,
+.photo-item img,
+.masonry-item img,
+.parallax-img,
+.parallax-img-land {
+    filter: grayscale(100%);
+}
+
+.project-card:hover img,
+.video-hover-container:hover img,
+.photo-item:hover img,
+.masonry-item:hover img,
+.parallax-img:hover,
+.parallax-img-land:hover {
+    filter: grayscale(0%);
+}
+
+/* --- SYMMETRICAL GALLERY SYSTEM --- */
+
+/* 1. Unified Header */
+.act-header {
+    text-align: center;
+    margin-bottom: 8vh;
+    padding-top: 10vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.act-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+}
+
+.act-line {
+    width: 40px;
+    height: 1px;
+    background-color: #333;
+}
+
+.layer-section {
+    padding: var(--space-md) 0;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 2. Act I: The Split (Perfect 50/50) */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    height: 100%;
+}
+
+.project-media,
+.project-details {
+    width: 100%;
+}
+
+.video-hover-container {
+    width: 100%;
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-hover-container:hover .video-overlay {
+    opacity: 1;
+}
+
+.play-icon {
+    font-size: 3rem;
+    color: white;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.meta-label {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+}
+
+.project-title {
+    font-size: clamp(2rem, 4vw, 4rem);
+    margin: 1rem 0;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.project-synopsis {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #bbb;
+    max-width: 40ch;
+    margin-bottom: 2rem;
+}
+
+.project-specs {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.project-specs li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    max-width: 200px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.2rem;
+}
+
+.project-specs span {
+    color: #fff;
+    font-weight: 500;
+}
+
+.awards span {
+    display: inline-block;
+    font-size: 0.7rem;
+    border: 1px solid #444;
+    padding: 0.3em 0.8em;
+    border-radius: 20px;
+    color: #888;
+    margin-right: 0.5rem;
+}
+
+/* Act II: Technical Blueprint */
+.blueprint-container {
+    position: relative;
+    padding: 3rem;
+}
+
+.guide-line {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.guide-line.vertical {
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+}
+
+.guide-line.horizontal {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+}
+
+.coord-text {
+    position: absolute;
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.centered-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.floating-poster {
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.caption {
+    margin-top: 1rem;
+}
+
+/* Act III: Full Width */
+.layer-section.full-width {
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    margin: var(--space-md) 0;
+}
+
+.full-media {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-img-land {
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+}
+
+.overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.floating-caption {
+    position: absolute;
+    bottom: 10vh;
+    left: 4vw;
+    z-index: 10;
+}
+
+/* Act IV: The Grid (Perfect 2x2) */
+.symmetrical-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+}
+
+.photo-item img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.02);
+}
+
+/* --- 2. RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+}
+
+/* --- 3. UTILITIES --- */
+.container {
+    width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* --- 4. COMPONENTS --- */
+.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    mix-blend-mode: difference;
+    text-transform: uppercase;
+}
+
+.fixed-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: var(--space-md);
+}
+
+.hero-title {
+    font-size: var(--text-hero);
+    line-height: 0.8;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+/* --- 5. ANIMATION UTILS --- */
+.word-mask {
+    display: block;
+    overflow: hidden;
+}
+
+.word-inner {
+    display: block;
+}

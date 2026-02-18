@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STILLS | Photography</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .filter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            padding-top: 15vh;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+        }
+
+        .filter-btn.active {
+            color: white;
+            border-bottom: 1px solid white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="transition-curtain" style="opacity: 1;"></div>
+
+    <nav class="fixed-nav">
+        <a href="../index.html" class="brand">← BACK</a>
+    </nav>
+
+    <div class="container">
+        <nav class="filter-nav">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Landscape</button>
+            <button class="filter-btn">Portrait</button>
+            <button class="filter-btn">Editorial</button>
+        </nav>
+
+        <div class="gallery-grid">
+            <div class="gallery-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/minimalist_photo_still_1771384185423.png"
+                    alt="Photo"></div>
+            <div class="gallery-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/landscape_dolomites_1771383327003.png"
+                    alt="Photo"></div>
+            <div class="gallery-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/moody_film_still_1_1771384482881.png"
+                    alt="Photo"></div>
+            <div class="gallery-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/moody_film_still_2_1771384499353.png"
+                    alt="Photo"></div>
+            <div class="gallery-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/drone_iceland_beach_1771387190007.png"
+                    alt="Photo"></div>
+            <div class="gallery-item"><img
+                    src="/Users/joseadrianzen/.gemini/antigravity/brain/dff227e5-44cd-4ed1-8524-2fc02d7cbba7/portrait_movie_poster_1771383312619.png"
+                    alt="Photo"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="../main.js"></script>
+</body>
+
+</html>
